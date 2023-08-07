@@ -1,0 +1,90 @@
+﻿@using System.Globalization;
+@model IEnumerable<WatchProjectMVC.Models.WatchViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+   
+    <div class="row">
+        <div class="col-6">
+            <p><a class="btn btn-outline-primary" asp-action="Create">Create New</a> </p>
+           
+        </div>
+        <div class="col-6 txtaligncntr" style="margin:auto;">
+            @using (Html.BeginForm("Index", "Watch", FormMethod.Get))
+           {
+                <input type="text" class="form-control" name="watchname" placeholder="Search by Name" style="width:85%;float:left;"/>
+                <button type="submit" class="btn btn-primary" style="width:15%;float:left"><i class="fa fa-search"></i></button>
+              @*  <input type="submit" class="btn btn-outline-primary" value="Search" name="submit" style="width:20%;float:left;" />*@
+           }
+        </div>
+     
+    </div>
+ 
+
+    <hr />
+
+    
+    <table class="table table-sm table-hover" id="tblWatch">
+        <thead>
+            <tr>
+
+                <th class="txtaligncntr">
+                    @Html.DisplayNameFor(model => model.ImageUrl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Short)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+             
+                <th class="txtaligncntr">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="txtaligncntr">
+                        <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width="70" height="80" />
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Short)
+                    </td>
+                    <td>
+                     
+                        @string.Format(new CultureInfo("th-TH"), "{0:C}", item.Price)
+                    </td>
+
+                    <td class="txtaligncntr">
+                       
+                        @Html.ActionLink("Edit", "Update", new {  id=item.Id  }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+
+                    
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+    
+
+  </div>
+

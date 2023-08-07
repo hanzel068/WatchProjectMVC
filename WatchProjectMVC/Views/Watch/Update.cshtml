@@ -1,0 +1,423 @@
+﻿@model WatchProjectMVC.Models.WatchViewModel
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+<script>
+    var previewimg = function (event) {
+        var result = document.getElementById("imgpreview");
+        result.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
+
+<div class="container">
+   
+    <h4>Update Details</h4>
+    <hr />
+
+
+
+    <form enctype="multipart/form-data" method="Post" asp-action="Update">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+
+
+        <div class="container">
+
+
+            <div>
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @* <div class="row">
+                <div class="col-5">
+
+                <div class="row">
+                <div class="col-12 ">
+
+                <div class="txtaligncntr">
+                <img src="@Html.DisplayFor(model => model.ImageUrl)" width="380" height="480" id="imgpreview" />
+                </div>
+                <input type="file" name="watchImage" class="form-control" id="imgfile" onchange="previewimg(event)" />
+
+
+                @{
+                var errorMessageforImage = TempData["errorMessageforImage"]?.ToString();
+                }
+                @if (!string.IsNullOrWhiteSpace(errorMessageforImage))
+                {
+                <span class="text-danger"> @errorMessageforImage </span>
+                }
+                </div>
+
+                <div class="col-12">
+
+
+                <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-12">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+                </dd>
+
+
+                </div>
+                <div class="col-12">
+
+                <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Price) (฿)
+                </dt>
+                <dd class="col-sm-12">
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+                </dd>
+
+
+                </div>
+
+                </div>
+
+                </div>
+                <div class="col-7">
+                <div class="row">
+                <div class="col-12"><h3>SPECIFICATIONS</h3></div>
+                <hr />
+                <div class="col-12">
+                <h4>DIMENSION</h4>
+                <dl class="row">
+                <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Weight) (g)
+                </dt>
+                <dd class="col-sm-9">
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+                </dd>
+                <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Height) (mm)
+                </dt>
+                <dd class="col-sm-9">
+                <input asp-for="Height" class="form-control" />
+                <span asp-validation-for="Height" class="text-danger"></span>
+                </dd>
+                <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Diameter) (mm)
+                </dt>
+                <dd class="col-sm-9">
+                <input asp-for="Diameter" class="form-control" />
+                <span asp-validation-for="Diameter" class="text-danger"></span>
+                </dd>
+                <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Thickness) (mm)
+                </dt>
+                <dd class="col-sm-9">
+                <input asp-for="Thickness" class="form-control" />
+                <span asp-validation-for="Thickness" class="text-danger"></span>
+                </dd>
+                </dl>
+                </div>
+
+
+                <div class="col-12">
+                <h4>MATERIAL</h4>
+                <dl class="row">
+                <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.CaseMaterial)
+                </dt>
+                <dd class="col-sm-9">
+                <input asp-for="CaseMaterial" class="form-control" />
+                <span asp-validation-for="CaseMaterial" class="text-danger"></span>
+                </dd>
+                <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.StrapMaterial)
+                </dt>
+                <dd class="col-sm-9">
+                <input asp-for="StrapMaterial" class="form-control" />
+                <span asp-validation-for="StrapMaterial" class="text-danger"></span>
+                </dd>
+                <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Chronograph)
+                </dt>
+                <dd class="col-sm-9">
+                <input asp-for="Chronograph" class="form-control" />
+                <span asp-validation-for="Chronograph" class="text-danger"></span>
+                </dd>
+                <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Jewel)
+                </dt>
+                <dd class="col-sm-9">
+                <input asp-for="Jewel" class="form-control" />
+                <span asp-validation-for="Jewel" class="text-danger"></span>
+                </dd>
+                </dl>
+                </div>
+
+
+                <div class="col-12">
+                <h4>MOVEMENT</h4>
+                <dl class="row">
+                <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Caliber)
+                </dt>
+
+                <dd class="col-sm-9">
+                <input asp-for="Caliber" class="form-control" />
+                <span asp-validation-for="Caliber" class="text-danger"></span>
+                </dd>
+
+                <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Movement)
+                </dt>
+                <dd class="col-sm-9">
+                <input asp-for="Movement" class="form-control" />
+                <span asp-validation-for="Movement" class="text-danger"></span>
+                </dd>
+
+                </dl>
+                </div>
+
+
+
+                </div>
+                </div>
+
+                </div>
+                <hr />
+
+                <div class="row">
+                <div class="col-12">
+                <dl class="row">
+                <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Short)
+                </dt>
+                <dd class="col-sm-10">
+                <input asp-for="Short" class="form-control" />
+                <span asp-validation-for="Short" class="text-danger"></span>
+                </dd>
+                </dl>
+                </div>
+                <div class="col-12">
+                <dl class="row">
+                <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FullDescription)
+                </dt>
+                <dd class="col-sm-10">
+                <textarea rows="4" asp-for="FullDescription" class="form-control"></textarea>
+                <span asp-validation-for="FullDescription" class="text-danger"></span>
+                </dd>
+                </dl>
+                </div>
+                </div>*@
+
+
+
+                <div class="row">
+                    <div class="col-4">
+
+                        <div class="row">
+                            <div class="col-12 ">
+
+                                <div class="txtaligncntr">
+                                    <img src="@Html.DisplayFor(model => model.ImageUrl)" class="imgdsplyupdate" id="imgpreview" />
+                                </div>
+                                <input type="file" name="watchImage" class="form-control" id="imgfile" onchange="previewimg(event)" />
+                                <input asp-for="ImageUrl" hidden class="form-control" />
+
+                                @{
+                                    var errorMessageforImage = TempData["errorMessageforImage"]?.ToString();
+                                }
+                                @if (!string.IsNullOrWhiteSpace(errorMessageforImage))
+                                {
+                                    <span class="text-danger"> @errorMessageforImage </span>
+                                }
+                            </div>
+
+                            <div class="col-12">
+
+
+                                <dt class="col-sm-12">
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </dt>
+                                <dd class="col-sm-12">
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </dd>
+
+
+                            </div>
+                            <div class="col-12">
+
+                                <dt class="col-sm-12">
+                                    @Html.DisplayNameFor(model => model.Price) (฿)
+                                </dt>
+                                <dd class="col-sm-12">
+                                    <input asp-for="Price" class="form-control" />
+                                    <span asp-validation-for="Price" class="text-danger"></span>
+                                </dd>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="col-12"><h3>SPECIFICATIONS</h3></div>
+                            <hr />
+                            <div class="col-6">
+                                <h4>DIMENSION</h4>
+                                <dl class="row">
+                                    <dt class="col-sm-12">
+                                        @Html.DisplayNameFor(model => model.Weight) (g)
+                                    </dt>
+                                    <dd class="col-sm-12">
+                                        <input asp-for="Weight" class="form-control" />
+                                        <span asp-validation-for="Weight" class="text-danger"></span>
+                                    </dd>
+                                    <dt class="col-sm-12">
+                                        @Html.DisplayNameFor(model => model.Height) (mm)
+                                    </dt>
+                                    <dd class="col-sm-12">
+                                        <input asp-for="Height" class="form-control" />
+                                        <span asp-validation-for="Height" class="text-danger"></span>
+                                    </dd>
+                                    <dt class="col-sm-12">
+                                        @Html.DisplayNameFor(model => model.Diameter) (mm)
+                                    </dt>
+                                    <dd class="col-sm-12">
+                                        <input asp-for="Diameter" class="form-control" />
+                                        <span asp-validation-for="Diameter" class="text-danger"></span>
+                                    </dd>
+                                    <dt class="col-sm-12">
+                                        @Html.DisplayNameFor(model => model.Thickness) (mm)
+                                    </dt>
+                                    <dd class="col-sm-12">
+                                        <input asp-for="Thickness" class="form-control" />
+                                        <span asp-validation-for="Thickness" class="text-danger"></span>
+                                    </dd>
+                                </dl>
+                            </div>
+
+
+                            <div class="col-6">
+                                <h4>MATERIAL</h4>
+                                <dl class="row">
+                                    <dt class="col-sm-12">
+                                        @Html.DisplayNameFor(model => model.CaseMaterial)
+                                    </dt>
+                                    <dd class="col-sm-12">
+                                        <input asp-for="CaseMaterial" class="form-control" />
+                                        <span asp-validation-for="CaseMaterial" class="text-danger"></span>
+                                    </dd>
+                                    <dt class="col-sm-12">
+                                        @Html.DisplayNameFor(model => model.StrapMaterial)
+                                    </dt>
+                                    <dd class="col-sm-12">
+                                        <input asp-for="StrapMaterial" class="form-control" />
+                                        <span asp-validation-for="StrapMaterial" class="text-danger"></span>
+                                    </dd>
+                                    <dt class="col-sm-12">
+                                        @Html.DisplayNameFor(model => model.Chronograph)
+                                    </dt>
+                                    <dd class="col-sm-12">
+                                        <input asp-for="Chronograph" class="form-control" />
+                                        <span asp-validation-for="Chronograph" class="text-danger"></span>
+                                    </dd>
+                                    <dt class="col-sm-12">
+                                        @Html.DisplayNameFor(model => model.Jewel)
+                                    </dt>
+                                    <dd class="col-sm-12">
+                                        <input asp-for="Jewel" class="form-control" />
+                                        <span asp-validation-for="Jewel" class="text-danger"></span>
+                                    </dd>
+                                </dl>
+                            </div>
+
+
+                            <div class="col-12">
+                                <h4>MOVEMENT</h4>
+                                <dl class="row">
+                                    <dt class="col-sm-12">
+                                        @Html.DisplayNameFor(model => model.Caliber)
+                                    </dt>
+
+                                    <dd class="col-sm-6">
+                                        <input asp-for="Caliber" class="form-control" />
+                                        <span asp-validation-for="Caliber" class="text-danger"></span>
+                                    </dd>
+
+                                    <dt class="col-sm-12">
+                                        @Html.DisplayNameFor(model => model.Movement)
+                                    </dt>
+                                    <dd class="col-sm-6">
+                                        <input asp-for="Movement" class="form-control" />
+                                        <span asp-validation-for="Movement" class="text-danger"></span>
+                                    </dd>
+
+                                </dl>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="col-12">
+                        <dl class="row">
+                            <dt class="col-sm-12">
+                                @Html.DisplayNameFor(model => model.Short)
+                            </dt>
+                            <dd class="col-sm-12">
+                                <input asp-for="Short" class="form-control" />
+                                <span asp-validation-for="Short" class="text-danger"></span>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-12">
+                        <dl class="row">
+                            <dt class="col-sm-12">
+                                @Html.DisplayNameFor(model => model.FullDescription)
+                            </dt>
+                            <dd class="col-sm-12">
+                                <textarea rows="4" asp-for="FullDescription" class="form-control"></textarea>
+                                <span asp-validation-for="FullDescription" class="text-danger"></span>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+        <div class="txtalignrgth">
+            <input type="submit" value="Update Details" class="btn btn-outline-success" />
+            <input type="button" value="Back to list" class="btn btn-outline-primary" onclick="history.back()" />
+        </div>
+
+
+
+
+
+    </form>
+
+
+
+    <div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

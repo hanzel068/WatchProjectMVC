@@ -1,0 +1,74 @@
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+
+
+body {
+    margin-bottom: 60px;
+}
+.navbar {
+    font-family: 'Nunito', sans-serif;
+    font-size:20px;
+}
+
+
+.card-columns .card:hover .card-img {
+    opacity: 1;
+    -webkit-transform-style: preserve-3d;
+}
+
+.card-columns .card-body {
+    height: 155px;
+    font-family: 'Nunito', sans-serif;
+    background: #fbfafd;
+}
+
+.card-columns .card-img {
+    height: 350px;
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    opacity: .8;
+}
+
+.card-columns .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
+}
+
+
+.crop {
+    width: 225px;
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+}
+.txtaligncntr{
+    text-align:center;
+}
+.txtalignrgth {
+    text-align: right;
+    margin-right:10px;
+}
+.btn
+{
+    width:140px;
+}
+.imgdsply {
+    width: 100%;
+    height: 330px;
+}
+.imgdsplyupdate {
+    width: 100%;
+    height: 392px;
+}
